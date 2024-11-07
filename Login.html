@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #1DB954;
+    }
+    .login-container {
+      background-color: #fff;
+      padding: 2rem;
+      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    .input-field {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    .input-field input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .login-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #1DB954;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .login-btn:hover {
+      background-color: #17a74e;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Spotify</h2>
+    <div class="input-field">
+      <input type="email" id="email" placeholder="Email" required>
+    </div>
+    <div class="input-field">
+      <input type="password" id="password" placeholder="Password" required>
+    </div>
+    <button class="login-btn" onclick="validateEmail()">Login</button>
+    <p id="error-message" style="color: red; display: none;">Please enter a valid email address.</p>
+  </div>
+
+  <script>
+    function validateEmail() {
+      const emailInput = document.getElementById("email");
+      const email = emailInput.value;
+      const errorMessage = document.getElementById("error-message");
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      
+      if (emailPattern.test(email)) {
+        errorMessage.style.display = "none";
+        window.location.href = "home.html"; 
+      } else {
+        errorMessage.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
